@@ -42,8 +42,12 @@ namespace guessing_game
                 Console.WriteLine();
                 Console.WriteLine("Guess the secret number:");
                 string guess = Console.ReadLine();
+                int parsedGuess;
 
-                if (Int32.Parse(guess) == secretNumber)
+                bool success = int.TryParse(guess, out parsedGuess);
+                if (success)
+                {
+                    if (Int32.Parse(guess) == secretNumber)
                 {
                     Console.WriteLine("Correct!");
                     break;
@@ -52,6 +56,10 @@ namespace guessing_game
                 {
                     Console.WriteLine(Int32.Parse(guess) > secretNumber ?
                         $"Incorrect, try a lower number! You may try {guessesMax - 1 - guesses} more times!" : $"Incorrect, try a higher number! You may try {guessesMax - 1 - guesses} more times!");
+                }
+                } else {
+                    Console.WriteLine("Please input a number.");
+                    guesses--;
                 }
                 guesses++;
             }
