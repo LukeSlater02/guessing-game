@@ -17,7 +17,8 @@ namespace guessing_game
                 Console.WriteLine("Correct!");
                 break;
             } else {
-                Console.WriteLine($"Incorrect. You may try {4 - guesses} more times!");
+                Console.WriteLine( Int32.Parse(guess) > secretNumber ?
+                    $"Incorrect, try a lower number! You may try {4 - guesses} more times!" : $"Incorrect, try a higher number! You may try {4 - guesses} more times!");
             }
             guesses++;
             }
