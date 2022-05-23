@@ -6,7 +6,8 @@ namespace guessing_game
     {
         static void Main(string[] args)
         {
-            int secretNumber = 42;
+            Random rnd = new Random();
+            int secretNumber = rnd.Next(1, 100);
             int guesses = 0;
             double guessesMax = 0;
             
